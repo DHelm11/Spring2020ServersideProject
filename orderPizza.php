@@ -10,7 +10,7 @@
         die("Connection failed: " . $conn->connect_error);
     }
 
-	$sql = "SELECT * FROM ZGF_PB_Orders WHERE picked_up = 0";
+	$sql = "SELECT * FROM ZGF_PB_Orders WHERE order_finished_time is null";
 
 	$result = $conn->query($sql);
 
@@ -22,9 +22,9 @@
 	}
 	
 
-	$sql = "INSERT INTO ZGF_PB_Orders (pizza_type, pizza_size, pizza_toppings, price, est_wait_time, first_name, last_name, street_address, state, city, zipcode, phone_number, picked_up) ";
+	$sql = "INSERT INTO ZGF_PB_Orders (pizza_type, pizza_size, pizza_toppings, price, est_wait_time, first_name, last_name, street_address, state, city, zipcode, phone_number) ";
 	$sql = $sql . "values ('" . $_POST["type"] . "', '" . $_POST['size'] . "', '" . $_POST['toppings'] . "', " . $_POST['price'] . ", " . $waitTime . ", '" . $_POST['firstName'] . "', '" . $_POST['lastName'];
-	$sql = $sql . "', '" . $_POST['streetAddress'] . "', '" . $_POST["state"] . "', '" . $_POST['city'] . "', '" . $_POST['zipcode'] . "', '" . $_POST['phoneNumber'] . "', 0)";
+	$sql = $sql . "', '" . $_POST['streetAddress'] . "', '" . $_POST["state"] . "', '" . $_POST['city'] . "', '" . $_POST['zipcode'] . "', '" . $_POST['phoneNumber'] . "')";
 
 	if ($conn->query($sql) === TRUE) {
 		$conn->close();
