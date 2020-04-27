@@ -1,0 +1,80 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url("../Images/menuBackground.jpg");
+    background-color: white;
+    height: 100px;
+    background-position: center;
+    background-repeat: repeat-y;
+    background-size: cover;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    height: 10%;
+    width: 100%;
+    background-color: black;
+    color: white;
+}
+
+.logo {
+    float: left;
+}
+
+.logo img {
+    margin-left: 1em;
+    margin-top: .5em;
+
+}
+
+.navLinks {
+    float: right;
+    font-size: 2em;
+}
+
+.navLinks ul {
+    list-style-type: none;
+
+}
+
+.navLinks li {
+    float: left;
+
+}
+
+.navLinks li a {
+    display: block;
+    padding-right: 2em;
+    padding-left: 2em;
+    margin-right: .5em;
+    text-decoration: none;
+    color: white;
+
+}
+
+.navLinks li a:hover {
+    background-color: darkred;
+
+}
+
+.pizzasDiv {
+    width: 60%;
+    margin: auto;
+    margin-top: 10em;
+}
+
+.pizza{
+    margin-bottom: 1em;
+    border: 5px solid darkred;
+    display: flex;
+    flex-direction: row;
+    background-color: black;
+    color: white;
+}
+
+.pizza div{
+    margin-left: 1em;
+    display: flex;
+    flex-direction: column;
+}
