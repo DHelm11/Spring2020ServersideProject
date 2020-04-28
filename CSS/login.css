@@ -1,0 +1,81 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url("../Images/menuBackground.jpg");
+    background-color: white;
+    height: 100px;
+    background-position: center;
+    background-repeat: repeat-y;
+    background-size: cover;
+}
+
+.logInDiv{
+    width: 60%;
+    height: 20em;
+    padding: 2em;
+    background-color: black;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15em;
+    display: flex;
+    flex-direction: column;
+}
+
+.logInDiv label{
+    color: white;
+    font-size: 2em;
+}
+
+.logInDiv input, .logInDiv button{
+    font-size: 2em;
+    margin-top: .5em;
+    margin-bottom: .5em;
+}
+
+.logInDiv button:hover{
+    background-color: darkred;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    height: 10%;
+    width: 100%;
+    background-color: black;
+    color: white;
+}
+
+.logo {
+    float: left;
+}
+
+.logo img {
+    margin-left: 1em;
+    margin-top: .5em;
+}
+
+.navLinks {
+    float: right;
+    font-size: 2em;
+}
+
+.navLinks ul {
+    list-style-type: none;
+}
+
+.navLinks li {
+    float: left;
+}
+
+.navLinks li a {
+    display: block;
+    padding-right: 2em;
+    padding-left: 2em;
+    margin-right: .5em;
+    text-decoration: none;
+    color: white;
+}
+
+.navLinks li a:hover {
+    background-color: darkred;
+}
