@@ -43,6 +43,7 @@
 		$orderForm = $orderForm . "</div><div><button onclick='validateForm(1)'>UPDATE</button></div></div></div>";
 		echo $orderForm;
 	}else{
+		echo '<div class="navbar"><div class="logo"><img src="./Images/pizzaboblogo.png" /></div><div class="navLinks"><ul><li><a href="main.php">Home</a></li><li><a href="menu.php">Menu</a></li><li><a href="order.php">Order</a></li><li><a href="profile.php">' . $user_name . '</a></li><li><a href="logout.php">Log Out</a></li></ul></div></div>';
 		$sql = "SELECT * FROM ZGF_PB_Users WHERE email = '" . $email . "'";
 		
 		$result = $conn->query($sql);
