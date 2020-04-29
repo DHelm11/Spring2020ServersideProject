@@ -36,7 +36,15 @@
 				};
 
 				$.post("logInRequest.php", postData).done(function(data){
-					window.location.href = "http://localhost/SSPSpring2020/main.php";
+					if(data == ""){
+						document.getElementById("emailError").innerHTML = "*Email/Password was incorrect";
+						return;
+					}
+					if(document.getElementById("employeeCheckbox").checked){
+						window.location.href = "http://localhost/SSPSpring2020/viewOrders.php";
+					}else{
+						window.location.href = "http://localhost/SSPSpring2020/main.php";
+					}
 				});
 			}
 		</script>
@@ -57,6 +65,7 @@
 			</div>
 		</div>
 		<div class="logInDiv">
+			<label id="loginError" style="color: red;"></label>
 			<label id="emailError" style="color: red;"></label>
 			<input type="email" id="emailField"placeholder="E-mail">
 			<label id="passwordError" style="color: red;"></label>
