@@ -1,5 +1,8 @@
 <?php
 	session_start();
+
+	$email = $_SESSION['email'];
+
 	$servername = "www.math-cs.ucmo.edu";
     $username = "cs4130_sp2020";
     $password = "tempPWD!";
@@ -16,11 +19,11 @@
 	if($check == 1){
 		$sql = "UPDATE ZGF_PB_Employees SET first_name = '" . $_POST['firstName'] . "', last_name = '" . $_POST['lastName'] . "', street_address = '" . $_POST['streetAddress'];
 		$sql = $sql . "', city = '" . $_POST['city'] . "', state = '" . $_POST['state'] . "', zipcode = '" . $_POST['zipcode'] . "', phone_number = '" . $_POST['phoneNumber'];
-		$sql = $sql . "'";
+		$sql = $sql . "' WHERE email = '" . $email . "'";
 	}else{
 		$sql = "UPDATE ZGF_PB_Users SET first_name = '" . $_POST['firstName'] . "', last_name = '" . $_POST['lastName'] . "', street_address = '" . $_POST['streetAddress'];
 		$sql = $sql . "', city = '" . $_POST['city'] . "', state = '" . $_POST['state'] . "', zipcode = '" . $_POST['zipcode'] . "', phone_number = '" . $_POST['phoneNumber'];
-		$sql = $sql . "'";
+		$sql = $sql . "' WHERE email = '" . $email . "'";
 	}
 
 	$result = $conn->query($sql);
