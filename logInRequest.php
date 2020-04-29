@@ -14,7 +14,7 @@
 	$check = $_POST['employee'];
 
 	if($check == "true"){
-		$sql = "SELECT first_name FROM ZGF_PB_Employees where email = '" . $_POST['email'] . "'";
+		$sql = "SELECT first_name FROM ZGF_PB_Employees where email = '" . $_POST['email'] . "' AND password = '" . $_POST['password'] . "'";
 	}else{
 		$sql = "SELECT first_name FROM ZGF_PB_Users where email = '" . $_POST['email'] . "' AND password = '" . $_POST['password'] . "'";
 	}
@@ -28,6 +28,7 @@
 			$_SESSION['employee'] = $check;
 			$_SESSION['loggedin'] = true;
 			$_SESSION['user_name'] = $row['first_name'];
+			$_SESSION['email'] = $_POST['email'];
 			echo $row['first_name'];
 		}else{
 			echo "";

@@ -1,4 +1,18 @@
 <?php
+	session_start();
+
+	if(isset($_SESSION['loggedin'])){
+		$logged_in = $_SESSION['loggedin'];
+		$user_name = $_SESSION['user_name'];
+		$employee = $_SESSION['employee'];
+	}
+
+	if($logged_in == true && $employee == "true"){
+		echo '<div class="navbar"><div class="logo"><img src="./Images/pizzaboblogo.png" /></div><div class="navLinks"><ul><li><a href="viewOrders.php">View Orders</a></li><li><a href="profile.php">' . $user_name . '</a></li><li><a href="logout.php">Log Out</a></li></ul></div></div>';
+	}else{
+		header('Location: ' . "http://localhost/SSPSpring2020/main.php");
+	}
+
 	$servername = "www.math-cs.ucmo.edu";
     $username = "cs4130_sp2020";
     $password = "tempPWD!";
@@ -12,8 +26,6 @@
     
     $sql = "SELECT * FROM ZGF_PB_Orders";
     $result = $conn->query($sql);
-
-	echo '<div class="navbar"><div class="logo"><img src="./Images/pizzaboblogo.png" /></div><div class="navLinks"><ul><li><a href="main.php">Home</a></li><li><a href="menu.php">Menu</a></li><li><a href="order.php">Order</a></li><li><a href="viewOrders.php">View Orders</a></li></ul></div></div>';
 
 	$s = "<div class='tablesDiv'><h1>Orders</h1>";
 	$s = $s . "<table class='tableDiv'><tr><td>Order Number</td><td>Pizza</td><td>Customer</td><td>Status</td><td>\t</td></tr>";

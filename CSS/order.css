@@ -134,4 +134,10 @@ body {
 
 .CustomerForm div {
     margin: .5em;
+    text-align: center;
+}
+
+.CustomerForm div input{
+    font-size: 1.5em;
+    width: 80%;
 }

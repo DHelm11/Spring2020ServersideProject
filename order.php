@@ -4,6 +4,7 @@
 	if(isset($_SESSION['loggedin'])){
 		$logged_in = $_SESSION['loggedin'];
 		$user_name = $_SESSION['user_name'];
+		$email = $_SESSION['email'];
 	}
 
 	if($logged_in == true){
@@ -55,13 +56,20 @@
 	
 	$orderForm = $orderForm . "</table></div></div>";
 
+	$sql = "SELECT * FROM ZGF_PB_Users WHERE email = '" . $email . "'";
+	$result = $conn->query($sql);
+
+	if($result){
+		$row = $result -> fetch_assoc();
+	}
+
 	$orderForm = $orderForm . "<div class='CustomerForm'><h1>Customer Information</h1>";
 	$orderForm = $orderForm . "<div><p style='color: red;' id='firstNameError'></p></div>";
-	$orderForm = $orderForm . "<div><label>First Name: </label><input type='text' value='' id='firstName'></input></div>" . "<div><p style='color: red;' id='lastNameError'></p></div>" . "<div><label> Last Name: </label><input type='text' value='' id='lastName'></input></div>";
-	$orderForm = $orderForm . "<div><p style='color: red;' id='streetAddressError'></p></div><div><label>Street Address: </label><input type='text' value='' id='streetAddress'></input></div>";
-	$orderForm = $orderForm . "<div><p style='color: red;' id='cityError'></p></div><div><label>City: </label><input type='text' value='' id='city'></input></div><div><p style='color: red;' id='stateError'></p></div><div><label> State: </label><input placeholder='MO' type='text' value='' id='state'></input></div>";
-	$orderForm = $orderForm . "<div><p style='color: red;' id='zipcodeError'></p></div><div><label>Zipcode: </label><input placeholder='12345' type='text' value='' id='zipcode'></div>";
-	$orderForm = $orderForm . "<div><p style='color: red;' id='phoneNumberError'></p></div><div><label>Phone Number: </label><input type='tel' id='phoneNumber' pattern='[0-9]{3}-[0-9]{2}-[0-9]{3}' placeholder='123-456-7890'></input></div>";
+	$orderForm = $orderForm . "<div><input type='text' placeholder='First Name' value='" . $row['first_name'] . "' id='firstName'></input></div>" . "<div><p style='color: red;' id='lastNameError'></p></div>" . "<div><input type='text' placeholder='Last Name' value='" . $row['last_name'] . "' id='lastName'></input></div>";
+	$orderForm = $orderForm . "<div><p style='color: red;' id='streetAddressError'></p></div><div><input type='text' placeholder='Street Address' value='" . $row['street_address'] . "' id='streetAddress'></input></div>";
+	$orderForm = $orderForm . "<div><p style='color: red;' id='cityError'></p></div><div><input type='text' placeholder='City' value='" . $row['city'] . "' id='city'></input></div><div><p style='color: red;' id='stateError'></p></div><div><input placeholder='State (ex: MO)' type='text' value='" . $row['state'] . "' id='state'></input></div>";
+	$orderForm = $orderForm . "<div><p style='color: red;' id='zipcodeError'></p></div><div><input placeholder='Zipcode' type='text' value='" . $row['zipcode'] . "' id='zipcode'></div>";
+	$orderForm = $orderForm . "<div><p style='color: red;' id='phoneNumberError'></p></div><div><input type='tel' id='phoneNumber' pattern='[0-9]{3}-[0-9]{2}-[0-9]{3}' placeholder='Phone Number (ex: 1234567890)' value='" . $row['phone_number'] . "'></input></div>";
 
 	$orderForm = $orderForm . "</div><div><button onclick='validateForm()'>Submit</button></div></div>";
 	echo $orderForm;
