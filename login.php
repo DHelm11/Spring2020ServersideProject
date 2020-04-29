@@ -70,10 +70,12 @@
 			<input type="email" id="emailField"placeholder="E-mail">
 			<label id="passwordError" style="color: red;"></label>
 			<input type="password" id="passwordField" placeholder="Password">
-			<div>
+			<div style="text-align: right">
 				<label>Employee: </label><input id="employeeCheckbox" type="checkbox">
 			</div>
 			<button onclick="LogInButtonClicked()">Log In</button>
+			<label style="text-align: center;">or</label>
+			<a style="font-size: 2em; text-decoration: none; color: white; text-align: center;" href="createAccount.php">Create Account</a>
 		</div>
 	</body>
 </html>

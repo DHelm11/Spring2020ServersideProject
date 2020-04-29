@@ -22,9 +22,9 @@
 		while($row = $result -> fetch_assoc()){
 			$s = $s . "<tr><td>" . $row["order_id"] . "</td><td>" . $row["pizza_type"] . "</td><td>" . $row["first_name"] . " " . $row["last_name"] . "</td>";
 			if($row["order_finished_time"] == null){
-				$s = $s . "<td>Cooking</td><td><button onclick='OrderFinishedButtonClicked(" . $row['order_id'] . ")'>Order Finished</button></td>";
+				$s = $s . "<td>Cooking</td><td><button onclick='OrderFinishedButtonClicked(" . $row['order_id'] . ")'>Order Cooked</button></td>";
 			}else if($row["order_picked_up_time"] == null){
-				$s = $s . "<td>Cooking</td><td><button onclick='OrderPickedUpButtonClicked(" . $row['order_id'] . ")'>Order Picked Up</button></td>";
+				$s = $s . "<td>Cooked</td><td><button onclick='OrderPickedUpButtonClicked(" . $row['order_id'] . ")'>Order Picked Up</button></td>";
 			}else{
 				$s = $s . "<td>Picked Up</td><td></td>";
 			}

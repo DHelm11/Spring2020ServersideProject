@@ -1,4 +1,17 @@
 <?php
+	session_start();
+	if(isset($_SESSION['loggedin'])){
+		$logged_in = $_SESSION['loggedin'];
+		$user_name = $_SESSION['user_name'];
+	}
+
+	if($logged_in == "true"){
+		echo '<div class="navbar"><div class="logo"><img src="./Images/pizzaboblogo.png" /></div><div class="navLinks"><ul><li><a href="main.php">Home</a></li><li><a href="menu.php">Menu</a></li><li><a href="order.php">Order</a></li><li><a href="profile.php">' . $user_name . '</a></li><li><a href="logout.php">Log Out</a></li></ul></div></div>';
+	}else{
+		echo '<div class="navbar"><div class="logo"><img src="./Images/pizzaboblogo.png" /></div><div class="navLinks"><ul><li><a href="main.php">Home</a></li><li><a href="menu.php">Menu</a></li><li><a href="order.php">Order</a></li><li><a href="login.php">Sign In</a></li></ul></div></div>';
+	}
+
+
     $servername = "www.math-cs.ucmo.edu";
     $username = "cs4130_sp2020";
     $password = "tempPWD!";
@@ -12,12 +25,6 @@
     
     $sql = "SELECT * FROM ZGF_PB_Pizzas";
     $result = $conn->query($sql);
-
-	if($_SESSION['loggedin'] == true){
-		echo '<div class="navbar"><div class="logo"><img src="./Images/pizzaboblogo.png" /></div><div class="navLinks"><ul><li><a href="main.php">Home</a></li><li><a href="menu.php">Menu</a></li><li><a href="order.php">Order</a></li><li><a href="userprofile.php">' + $_SESSION['user_name'] + '</a></li><li><a >Log Out</a></li></ul></div></div>';
-	}else{
-		echo '<div class="navbar"><div class="logo"><img src="./Images/pizzaboblogo.png" /></div><div class="navLinks"><ul><li><a href="main.php">Home</a></li><li><a href="menu.php">Menu</a></li><li><a href="order.php">Order</a></li><li><a href="login.php">Sign In</a></li></ul></div></div>';
-	}
 
 	echo '<div style="margin-top: 10em; text-align: center; color: white; background-color: black; border-top: 5px solid darkred; border-bottom: 5px solid darkred;"><div><h1>PRICING</h1></div><div><h1>Small - $8 Medium - $12 Large - $16</h1></div><div><h2>Extra Toppings</h2></div><div><h3>(Per Topping)</h3></div><div><h4>Small - $0.50 Medium - $1.00 Large - $1.50</h4></div></div>';
     

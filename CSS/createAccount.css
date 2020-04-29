@@ -9,30 +9,23 @@ body {
     background-size: cover;
 }
 
-.logInDiv{
-    width: 60%;
-    height: 21em;
-    padding: 2em;
-    background-color: black;
+.mainFormDiv{
     margin-left: auto;
     margin-right: auto;
-    margin-top: 15em;
+    margin-top: 10em;
+    padding: 2em;
     display: flex;
     flex-direction: column;
+    width: 40%;
+    background-color: black;
 }
 
-.logInDiv label{
-    color: white;
+.mainFormDiv input, button{
+    margin: .5em;
     font-size: 2em;
 }
 
-.logInDiv input, .logInDiv button{
-    font-size: 2em;
-    margin-top: .5em;
-    margin-bottom: .5em;
-}
-
-.logInDiv button:hover{
+.mainFormDiv button:hover{
     background-color: darkred;
 }
 
@@ -52,6 +45,7 @@ body {
 .logo img {
     margin-left: 1em;
     margin-top: .5em;
+
 }
 
 .navLinks {
@@ -61,10 +55,12 @@ body {
 
 .navLinks ul {
     list-style-type: none;
+
 }
 
 .navLinks li {
     float: left;
+
 }
 
 .navLinks li a {
@@ -74,8 +70,10 @@ body {
     margin-right: .5em;
     text-decoration: none;
     color: white;
+
 }
 
 .navLinks li a:hover {
     background-color: darkred;
+
 }
