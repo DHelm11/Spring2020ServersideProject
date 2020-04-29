@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	$servername = "www.math-cs.ucmo.edu";
     $username = "cs4130_sp2020";
     $password = "tempPWD!";
